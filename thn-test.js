@@ -10,9 +10,19 @@ function getCurrency() {
   data.currency = money[1].replace(/\((\w+)\)/g, '$1');
 }
 
+function getGuestsInfo() {
+  const roomSelection = document.querySelector('#fb-qs-summary-rooms-quantity > span');
+  data.rooms = Number(roomSelection.getAttribute('data-placeholders').replace(/\[(\w+)\]/g, '$1'));
+  const adults = Number(document.querySelector('span[data-key=adult]').getAttribute('data-mode'));
+  const childrens = Number(document.querySelector('span[data-key=child]').getAttribute('data-mode'));
+  data.guests = { adults, childrens };
+  data.totalGuests = adults + childrens;
+}
+
 const getData = () => {
   getDates();
   getCurrency();
+  getGuestsInfo();
   return (data);
 };
 
