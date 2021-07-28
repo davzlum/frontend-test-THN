@@ -5,8 +5,14 @@ const getDates = () => {
   data.checkOutDate = document.querySelector('#fb-qs-summary-dates-departure > span').getAttribute('data-date');
 };
 
+function getCurrency() {
+  const money = document.querySelector('#fb-headbar-block-currency > span.fb-headbar-value').innerText.split(' ');
+  data.currency = money[1].replace(/\((\w+)\)/g, '$1');
+}
+
 const getData = () => {
   getDates();
+  getCurrency();
   return (data);
 };
 
