@@ -19,10 +19,15 @@ function getGuestsInfo() {
   data.totalGuests = adults + childrens;
 }
 
+function getLanguage() {
+  data.language = document.documentElement.lang;
+}
+
 const getData = () => {
   getDates();
   getCurrency();
   getGuestsInfo();
+  getLanguage();
   return (data);
 };
 
