@@ -1,12 +1,16 @@
 const data = {};
 
-function getDates() {
+const getDates = () => {
   data.checkInDate = document.querySelector('#fb-qs-summary-dates-arrival > span').getAttribute('data-date');
   data.checkOutDate = document.querySelector('#fb-qs-summary-dates-departure > span').getAttribute('data-date');
-}
+};
 
-function getData() {
+const getData = () => {
   getDates();
-}
+  return (data);
+};
 
-document.location.host === 'www.book-secure.com' ? getData() : 'error';
+const error = () => 'error';
+
+// eslint-disable-next-line no-unused-expressions
+document.location.host === 'www.book-secure.com' ? getData() : error();
